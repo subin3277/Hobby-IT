@@ -174,7 +174,7 @@ export function deleteGroupNotice(hobby_id, notice_id) {
 
 // 42.모임 방명록 등록
 export function postGroupVisitorBook(hobby_id, date, data) {
-  return multipartInstance.post(`/${hobby_id}/postit/2023-02-15`, data);
+  return multipartInstance.post(`/${hobby_id}/postit/${date}`, data);
 }
 
 
@@ -191,4 +191,9 @@ export function getGroupVisitorBookCreatedDate(hobby_id, date) {
 // 소모임 가입 여부 체크
 export function getGroupUserPrivilege(hobby_id){
   return instance.get(`/${hobby_id}/check`)
+}
+
+// 방명록 작성 가능 여부 체크
+export function getCanVisitorBook(hobby_id){
+  return instance.get(`/${hobby_id}/postit/writable`)
 }

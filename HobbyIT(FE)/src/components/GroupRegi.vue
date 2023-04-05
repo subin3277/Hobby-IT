@@ -55,11 +55,11 @@
     </table>
 
     <v-dialog v-model="allowmodal">
-      <allow-mem @close="closeallow" :waitid="waitid"/>
+      <allow-mem @close="closeallow" :waitid="[waitid, groupid]"/>
     </v-dialog>
 
     <v-dialog v-model="denymodal">
-      <deny-mem @close="closedeny" :waitid="waitid"/>
+      <deny-mem @close="closedeny" :waitid="[waitid, groupid]"/>
     </v-dialog>
   </div>
 </template>

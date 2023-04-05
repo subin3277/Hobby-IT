@@ -17,7 +17,7 @@
 import { verifyGroupJoinRequest } from '@/api/hobby'
 export default {
   props : {
-    waitid : Number,
+    waitid : Object,
   },
   methods: {
     close() {
@@ -27,9 +27,9 @@ export default {
       try {
         const inputdata = {
           isAllowed : "REJECTED",
-          waitId : this.waitId,
+          waitId : this.waitid[0],
         }
-        const { data } = await verifyGroupJoinRequest(id, inputdata)
+        const { data } = await verifyGroupJoinRequest(this.waitid[1], inputdata)
         console.log(data)
         this.$emit('close')
       }
